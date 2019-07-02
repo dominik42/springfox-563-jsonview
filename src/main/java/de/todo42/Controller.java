@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * @author Dominik
  *
@@ -32,11 +34,13 @@ public class Controller {
 	
 	@JsonView(Views.SimplePerson.class)
 	@GetMapping(value = "/simple")
+	@ApiOperation(value = "return only a simple view of the person")
 	public Person getSimplePerson() {
 		return new Person();
 	}
 
 	@GetMapping
+	@ApiOperation(value = "return all attributes of the person")
 	public Person getFullPerson() {
 		return new Person();
 	}
